@@ -1,38 +1,63 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
 .App {
+  display: flex;
+  justify-content: center;
+  background-color:lavender;
+  height: 100vh;
+  align-items: center;
+}
+
+.header-text {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#calculator{
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+  gap: 10px;
+  grid-template-areas: 
+  "display display display display"
+  "clear clear divide multiply"
+  "seven eight nine subtract"
+  "four five six add"
+  "one two three equals"
+  "zero zero decimal equals";
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.output {
+  background-color: rgba(0,0,0,0.75);
   display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 10px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+
+.output #sum {
+  color: rgba(255, 255, 255, .75);
+  font-size: 1.5rem;
+}
+
+.output #display {
   color: white;
+  font-size: 2.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+.number-buttons {
+  cursor: pointer;
+  font-size: 2rem;
+  border: 1px solid white;
+  outline: none;
+  background-color: rgba(255, 255, 255, .75);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.number-buttons:hover {
+  background-color: rgba(255, 255, 255, .9);
 }
